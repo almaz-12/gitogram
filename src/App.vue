@@ -1,0 +1,60 @@
+<template>
+  <Feeds />
+</template>
+
+<script>
+import { Feeds } from './pages/feeds'
+
+export default {
+  name: 'App',
+  components: {
+    Feeds
+  }
+}
+</script>
+
+<style lang="scss">
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', Helvetica, sans-serif;
+  color: #262626;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    margin: 0;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+.container {
+  width: 1200px;
+  margin: 0 auto;
+}
+</style>

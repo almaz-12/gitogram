@@ -1,0 +1,19 @@
+<template>
+  <component :is="name"/>
+</template>
+<script>
+import * as icons from './components/templates'
+
+export default {
+  name: 'Icon',
+  components: {
+    ...icons
+  },
+  props: {
+    name: {
+      type: String,
+      required: true
+    }
+  }
+}
+</script>

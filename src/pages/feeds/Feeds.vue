@@ -55,6 +55,7 @@ export default {
     &_logout {
       width: 25px;
       height: 20px;
+      margin-left: 23px;
     }
   }
 }

@@ -17,14 +17,19 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .header {
     background: #fafafa;
     border-bottom: 1px solid #c6c6c8;
     padding: 42px 0 32px;
-  }
 
-  .header-bottom {
-    margin-top: 45px;
+    &-top {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-bottom {
+      margin-top: 45px;
+    }
   }
 </style>

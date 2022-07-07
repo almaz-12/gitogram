@@ -2,12 +2,14 @@
   <div>
     <PageHeader>
       <template #top>
-        <Logo/>
-        <ul class="icons">
-          <div class="icon">
+        <div class="logo">
+          <Logo/>
+        </div>
+        <ul class="buttons">
+          <div class="buttons-item buttons-item_home">
             <Icon name="Home"/>
           </div>
-          <div class="icon">
+          <div class="button-item buttons-item_logout">
             <Icon name="Logout"/>
           </div>
         </ul>
@@ -15,7 +17,7 @@
       <template #bottom>Bottom</template>
     </PageHeader>
     <FeedItem/>
-    </div>
+  </div>
 </template>
 <script>
 import { PageHeader } from '../../components/pageHeader'
@@ -32,8 +34,29 @@ export default {
   }
 }
 </script>
-<style scoped>
-.icon {
-  color: red;
+<style lang="scss" scoped>
+.logo {
+  width: 174px;
+  height: 35px;
+  color: #000;
 }
+.buttons {
+  display: flex;
+  align-items: center;
+
+  &-item {
+    color: #000;
+
+    &_home {
+      width: 24px;
+      height: 25px;
+    }
+
+    &_logout {
+      width: 25px;
+      height: 20px;
+    }
+  }
+}
+
 </style>

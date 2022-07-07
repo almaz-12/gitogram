@@ -2,7 +2,7 @@
   <div class="feed">
     <div class="feed-wrap">
       <Toggler/>
-      <div class="comments">
+      <div class="comments" v-show="onToggle">
        <CommentsList/>
       </div>
     </div>

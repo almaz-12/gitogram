@@ -2,7 +2,7 @@
   <button :class="['toggler-btn',{active: isActive}]" @click="onToggle">
     <span class="toggler-text">{{!this.isActive ? 'Show' : 'Hide'}} issues</span>
     <span class="toggler-icon">
-      <Icon name="Toggler"/>
+      <Icon name="Triangle"/>
     </span>
   </button>
 </template>
@@ -12,6 +12,7 @@ import { Icon } from '../../icons'
 
 export default {
   name: 'Toggler',
+  emits: ['onToggle'],
   components: {
     Icon
   },
@@ -41,7 +42,7 @@ export default {
     width: 10px;
     transform: rotate(180deg);
   }
-  &.active {
+  &-btn.active {
     .toggler-icon {
       transform: rotate(0deg);
     }

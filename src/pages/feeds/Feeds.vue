@@ -2,9 +2,15 @@
   <div>
     <PageHeader>
       <template #top>
-        <div class="icon">
-          <Icon name="Home"/>
-        </div>
+        <Logo/>
+        <ul class="icons">
+          <div class="icon">
+            <Icon name="Home"/>
+          </div>
+          <div class="icon">
+            <Icon name="Logout"/>
+          </div>
+        </ul>
       </template>
       <template #bottom>Bottom</template>
     </PageHeader>
@@ -12,7 +18,8 @@
     </div>
 </template>
 <script>
-import { PageHeader } from '../../components/page-header'
+import { PageHeader } from '../../components/pageHeader'
+import { Logo } from '../../components/logo'
 import { FeedItem } from '../../components/feed'
 import { Icon } from '../../icons'
 export default {
@@ -20,7 +27,8 @@ export default {
   components: {
     PageHeader,
     Icon,
-    FeedItem
+    FeedItem,
+    Logo
   }
 }
 </script>

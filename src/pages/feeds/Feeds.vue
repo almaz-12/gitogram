@@ -8,16 +8,19 @@
       </template>
       <template #bottom>Bottom</template>
     </PageHeader>
+    <FeedItem/>
     </div>
 </template>
 <script>
 import { PageHeader } from '../../components/page-header'
+import { FeedItem } from '../../components/feed'
 import { Icon } from '../../icons'
 export default {
   name: 'Feeds',
   components: {
     PageHeader,
-    Icon
+    Icon,
+    FeedItem
   }
 }
 </script>

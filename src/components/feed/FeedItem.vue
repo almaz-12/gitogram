@@ -1,17 +1,23 @@
 <template>
   <div class="feed">
-    <div class="toggler-wrap">
-      <Toggler></Toggler>
+    <div class="feed-wrap">
+      <Toggler/>
+      <div class="comments">
+       <CommentsList/>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { Toggler } from '../toggler'
+import { CommentsList } from '../commentsList'
+
 export default {
   name: 'FeedItem',
   components: {
-    Toggler
+    Toggler,
+    CommentsList
   }
 }
 </script>

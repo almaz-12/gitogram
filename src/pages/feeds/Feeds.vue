@@ -21,7 +21,9 @@
         <UsersList :users="users"/>
       </template>
     </PageHeader>
-    <FeedItem :date="date"/>
+    <ul class="feed-list">
+      <li class="feed-item" v-for="n in 2" :key="n"><FeedItem :date="date"/></li>
+    </ul>
   </div>
 </template>
 <script>
@@ -86,5 +88,7 @@ export default {
     }
   }
 }
-
+.feed-item+.feed-item {
+  margin-top: 24px;
+}
 </style>

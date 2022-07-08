@@ -34,11 +34,16 @@ export default {
 <style lang="scss" scoped>
 .toggler {
   &-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     padding: 0;
   }
+  &-text {
+    margin-right: 5px;
+  }
   &-icon {
+    display: flex;
+    align-items: center;
     width: 10px;
     transform: rotate(180deg);
   }

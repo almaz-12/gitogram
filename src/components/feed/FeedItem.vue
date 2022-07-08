@@ -50,9 +50,10 @@ export default {
       this.show = status
     }
   },
-  params: {
+  props: {
     date: {
-      type: String
+      type: String,
+      required: true
     }
   }
 }
@@ -87,6 +88,7 @@ export default {
   }
   &-date {
     display: flex;
+    margin-top: 10px;
     font-size: 12px;
     letter-spacing: 0.1em;
     text-transform: uppercase;

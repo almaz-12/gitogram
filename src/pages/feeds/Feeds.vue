@@ -12,7 +12,7 @@
           <div class="buttons-item buttons-item_user">
             <Avatar :url="authUser.url" :alt="authUser.alt" :size="authUser.size"/>
           </div>
-          <div class="button-item buttons-item_logout">
+          <div class="buttons-item buttons-item_logout">
             <Icon name="Logout"/>
           </div>
         </ul>
@@ -21,7 +21,7 @@
         <UsersList :users="users"/>
       </template>
     </PageHeader>
-    <FeedItem/>
+    <FeedItem :date="date"/>
   </div>
 </template>
 <script>
@@ -50,7 +50,8 @@ export default {
         alt: 'user',
         size: 'small'
       },
-      users
+      users,
+      date: '15 may'
     }
   }
 }
@@ -66,6 +67,7 @@ export default {
   align-items: center;
 
   &-item {
+    cursor: pointer;
     color: #000;
 
     &_home {

@@ -74,6 +74,17 @@ export default {
       margin-right: 14px;
     }
   }
+  &-content {
+    margin-top: 16px;
+    padding: 24px 20px;
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+  }
+  &-comments {
+    margin-top: 18px;
+  }
   &-date {
     display: flex;
     font-size: 12px;

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PageHeader>
+    <Header>
       <template #top>
         <div class="logo">
           <Logo/>
@@ -20,14 +20,14 @@
       <template #bottom>
         <UsersList :users="users"/>
       </template>
-    </PageHeader>
+    </Header>
     <ul class="feed-list">
       <li class="feed-item" v-for="n in 2" :key="n"><FeedItem :date="date"/></li>
     </ul>
   </div>
 </template>
 <script>
-import { PageHeader } from '../../components/pageHeader'
+import { Header } from '../../components/header'
 import { Logo } from '../../components/logo'
 import { Avatar } from '../../components/avatar'
 import { UsersList } from '../../components/usersList'
@@ -38,7 +38,7 @@ import users from '../../components/usersList/data.json'
 export default {
   name: 'Feeds',
   components: {
-    PageHeader,
+    Header,
     Icon,
     FeedItem,
     Logo,

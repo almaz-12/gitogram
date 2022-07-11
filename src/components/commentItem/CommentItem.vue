@@ -2,7 +2,7 @@
   <div class="c-comment">
     <p>
       <span class="username">{{ username }}</span>
-      {{ text }}
+      {{ comment }}
     </p>
   </div>
 </template>
@@ -13,13 +13,11 @@ export default {
   props: {
     username: {
       type: String,
-      required: true,
-      default: 'Default User'
+      required: true
     },
-    text: {
+    comment: {
       type: String,
-      required: true,
-      default: 'Default comment text'
+      required: true
     }
   }
 }

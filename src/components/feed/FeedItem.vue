@@ -4,13 +4,18 @@
       <div class="feed-header">
         <div class="feed-user">
           <div class="feed-user-avatar">
-            <Avatar :url="user.url" :alt="user.username" :size="user.username"/>
+            <Avatar :url="user.url" :alt="user.username" :size="user.size"/>
           </div>
           <div class="feed-user-name">{{user.username}}</div>
         </div>
       </div>
       <div class="feed-content">
-        Content
+        <CardItem
+          :title="cardInfo.title"
+          :content="cardInfo.content"
+          :star="cardInfo.star"
+          :fork="cardInfo.fork"
+        />
       </div>
       <div class="feed-comments">
         <Toggler @onToggle="onToggle"/>
@@ -27,6 +32,7 @@
 import { Toggler } from '../toggler'
 import { CommentsList } from '../commentsList'
 import { Avatar } from '../avatar'
+import { CardItem } from '../cardItem'
 
 export default {
   name: 'FeedItem',
@@ -37,13 +43,20 @@ export default {
         url: 'assets/avatar.png',
         username: 'username',
         size: 'small'
+      },
+      cardInfo: {
+        title: 'Vue.js',
+        content: 'JavaScript framework for building interactive web applications ⚡',
+        star: '156k',
+        fork: 4
       }
     }
   },
   components: {
     Toggler,
     CommentsList,
-    Avatar
+    Avatar,
+    CardItem
   },
   methods: {
     onToggle (status) {
@@ -73,6 +86,12 @@ export default {
 
     &-avatar {
       margin-right: 14px;
+    }
+
+    &-name {
+      color: #262626;
+      font-weight: 700;
+      font-size: 18px;
     }
   }
   &-content {

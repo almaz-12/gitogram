@@ -75,9 +75,11 @@ export default {
 <style lang="scss" scoped>
 .c-feed {
   position: relative;
-  max-width: 980px;
+  max-width: 1100px;
   margin: auto;
   padding-top: 32px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 .feed {
   &-user {

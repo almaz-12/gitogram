@@ -27,11 +27,16 @@ export default {
 .users-list {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
-.user-item {
-  cursor: pointer;
-  &+.user-item {
-    margin-left: 31px;
+.user {
+  &-item {
+    cursor: pointer;
+    margin-right: 31px;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 

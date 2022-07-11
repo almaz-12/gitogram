@@ -54,7 +54,20 @@ button {
   cursor: pointer;
 }
 .container {
-  width: 1200px;
+  width: 1230px;
   margin: 0 auto;
+  padding: 0 15px;
+}
+
+@media screen and (max-width: 1250px) {
+  .container {
+    width: 998px;
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .container {
+    width: 100%;
+  }
 }
 </style>

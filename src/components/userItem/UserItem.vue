@@ -42,6 +42,7 @@ export default {
   border-radius: 50%;
 }
 .user-name {
+  font-size: 12px;
   text-align: center;
 }
 </style>

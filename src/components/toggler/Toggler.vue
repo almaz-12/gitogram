@@ -8,27 +8,27 @@
 </template>
 
 <script>
-import { Icon } from '../../icons'
+import { Icon } from '../../icons';
 
 export default {
   name: 'Toggler',
   emits: ['onToggle'],
   components: {
-    Icon
+    Icon,
   },
-  data () {
+  data() {
     return {
       text: '',
-      isActive: false
-    }
+      isActive: false,
+    };
   },
   methods: {
-    onToggle () {
-      this.isActive = !this.isActive
-      this.$emit('onToggle', this.isActive)
-    }
-  }
-}
+    onToggle() {
+      this.isActive = !this.isActive;
+      this.$emit('onToggle', this.isActive);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

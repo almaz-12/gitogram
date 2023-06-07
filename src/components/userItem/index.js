@@ -1,1 +1,1 @@
-export { default as UserItem } from './UserItem.vue'
+export { default as UserItem } from './UserItem.vue';

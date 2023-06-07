@@ -1,4 +1,4 @@
-# gitogram
+# gitogram-project
 
 ## Project setup
 ```

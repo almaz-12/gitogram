@@ -13,14 +13,14 @@ export default {
   props: {
     username: {
       type: String,
-      required: true
+      required: true,
     },
     comment: {
       type: String,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>

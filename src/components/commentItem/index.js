@@ -1,1 +1,1 @@
-export { default as CommentItem } from './CommentItem.vue'
+export { default as CommentItem } from './CommentItem.vue';

@@ -7,33 +7,33 @@
 </template>
 
 <script>
-import { CommentItem } from '../commentItem'
+import { CommentItem } from '../commentItem';
 
 export default {
   name: 'CommentsList',
   components: {
-    CommentItem
+    CommentItem,
   },
-  data () {
+  data() {
     return {
       comments: [
         {
           id: 1,
           username: 'Almaz',
-          comment: 'Default text'
+          comment: 'Default text',
         },
         {
           id: 2,
           username: 'Almaz',
-          comment: 'Default text'
+          comment: 'Default text',
         },
         {
           id: 3,
           username: 'Almaz',
-          comment: 'Default text'
-        }
-      ]
-    }
-  }
-}
+          comment: 'Default text',
+        },
+      ],
+    };
+  },
+};
 </script>

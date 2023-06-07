@@ -29,47 +29,47 @@
 </template>
 
 <script>
-import { Toggler } from '../toggler'
-import { CommentsList } from '../commentsList'
-import { Avatar } from '../avatar'
-import { CardItem } from '../cardItem'
+import { Toggler } from '../toggler';
+import { CommentsList } from '../commentsList';
+import { Avatar } from '../avatar';
+import { CardItem } from '../cardItem';
 
 export default {
   name: 'FeedItem',
-  data () {
+  data() {
     return {
       show: false,
       user: {
         url: 'assets/avatar.png',
         username: 'username',
-        size: 'small'
+        size: 'small',
       },
       cardInfo: {
         title: 'Vue.js',
         content: 'JavaScript framework for building interactive web applications ⚡',
         star: '156k',
-        fork: 4
-      }
-    }
+        fork: 4,
+      },
+    };
   },
   components: {
     Toggler,
     CommentsList,
     Avatar,
-    CardItem
+    CardItem,
   },
   methods: {
-    onToggle (status) {
-      this.show = status
-    }
+    onToggle(status) {
+      this.show = status;
+    },
   },
   props: {
     date: {
       type: String,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

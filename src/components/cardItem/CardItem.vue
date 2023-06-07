@@ -24,19 +24,19 @@ export default {
   props: {
     title: {
       type: String,
-      required: true
+      required: true,
     },
     content: {
-      type: String
+      type: String,
     },
     star: {
-      type: String
+      type: String,
     },
     fork: {
-      type: Number
-    }
-  }
-}
+      type: Number,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

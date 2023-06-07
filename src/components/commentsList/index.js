@@ -1,1 +1,1 @@
-export { default as CommentsList } from './CommentsList.vue'
+export { default as CommentsList } from './CommentsList.vue';

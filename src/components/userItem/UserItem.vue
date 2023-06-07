@@ -6,32 +6,32 @@
 </template>
 
 <script>
-import { Avatar } from '../avatar'
+import { Avatar } from '../avatar';
 
 export default {
   name: 'UserItem',
   components: {
-    Avatar
+    Avatar,
   },
   props: {
     url: {
       type: String,
-      required: true
+      required: true,
     },
     alt: {
       type: String,
-      required: true
+      required: true,
     },
     size: {
       type: String,
-      required: true
+      required: true,
     },
     userName: {
       type: String,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

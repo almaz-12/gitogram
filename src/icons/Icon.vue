@@ -2,20 +2,20 @@
   <component :is="name"/>
 </template>
 <script>
-import * as icons from './components/templates'
+import * as icons from './components/templates';
 
 export default {
   name: 'Icon',
   components: {
-    ...icons
+    ...icons,
   },
   props: {
     name: {
       type: String,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>

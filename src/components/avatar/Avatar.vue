@@ -10,18 +10,18 @@ export default {
   props: {
     url: {
       type: String,
-      required: true
+      required: true,
     },
     alt: {
       type: String,
-      required: true
+      required: true,
     },
     size: {
       type: String,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

@@ -27,13 +27,13 @@
   </div>
 </template>
 <script>
-import { Header } from '../../components/header'
-import { Logo } from '../../components/logo'
-import { Avatar } from '../../components/avatar'
-import { UsersList } from '../../components/usersList'
-import { FeedItem } from '../../components/feed'
-import { Icon } from '../../icons'
-import users from '../../components/usersList/data.json'
+import { Header } from '../../components/header';
+import { Logo } from '../../components/logo';
+import { Avatar } from '../../components/avatar';
+import { UsersList } from '../../components/usersList';
+import { FeedItem } from '../../components/feed';
+import { Icon } from '../../icons';
+import users from '../../components/usersList/data.json';
 
 export default {
   name: 'Feeds',
@@ -43,20 +43,20 @@ export default {
     FeedItem,
     Logo,
     Avatar,
-    UsersList
+    UsersList,
   },
-  data () {
+  data() {
     return {
       authUser: {
         url: '/assets/avatar.png',
         alt: 'user',
-        size: 'small'
+        size: 'small',
       },
       users,
-      date: '15 may'
-    }
-  }
-}
+      date: '15 may',
+    };
+  },
+};
 </script>
 <style lang="scss" scoped>
 .logo {

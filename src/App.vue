@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import { Feeds } from './pages/feeds'
+import { Feeds } from './pages/feeds';
 
 export default {
   name: 'App',
   components: {
-    Feeds
-  }
-}
+    Feeds,
+  },
+};
 </script>
 
 <style lang="scss">

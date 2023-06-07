@@ -7,20 +7,20 @@
 </template>
 
 <script>
-import { UserItem } from '../userItem'
+import { UserItem } from '../userItem';
 
 export default {
   name: 'UsersList',
   components: {
-    UserItem
+    UserItem,
   },
   props: {
     users: {
       type: Array,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>

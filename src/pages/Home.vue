@@ -27,16 +27,15 @@
   </div>
 </template>
 <script>
-import { Header } from '../../components/header';
-import { Logo } from '../../components/logo';
-import { Avatar } from '../../components/avatar';
-import { UsersList } from '../../components/usersList';
-import { FeedItem } from '../../components/feed';
-import { Icon } from '../../icons';
-import users from '../../components/usersList/data.json';
+import { Header } from '@/components/header';
+import { Logo } from '@/components/logo';
+import { Avatar } from '@/components/avatar';
+import { UsersList } from '@/components/usersList';
+import { FeedItem } from '@/components/feed';
+import { Icon } from '@/icons';
+import users from '@/components/usersList/data.json';
 
 export default {
-  name: 'Feeds',
   components: {
     Header,
     Icon,

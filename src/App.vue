@@ -1,14 +1,14 @@
 <template>
-  <Home />
+  <FeedsPage />
 </template>
 
 <script>
-import Home from '@/pages/Home.vue';
+import FeedsPage from './pages/FeedsPage.vue';
 
 export default {
   name: 'App',
   components: {
-    Home,
+    FeedsPage,
   },
 };
 </script>

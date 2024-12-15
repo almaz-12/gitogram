@@ -3,24 +3,19 @@
     <div class="card-title">{{title}}</div>
     <div class="card-content">{{content}}</div>
     <div class="card-info">
-      <ul class="info-list">
-        <li class="info-item">
-          <div class="info-item-icon">Star</div>
-          <div class="info-item-text">{{star}}</div>
-        </li>
-        <li class="info-item">
-          <div class="info-item-icon">Fork</div>
-          <div class="info-item-text">{{fork}}</div>
-        </li>
-      </ul>
+      <Stats :stars="stars" :forks="forks" />
     </div>
   </div>
 </template>
 
 <script>
+import { Stats } from '@/components/stats';
 
 export default {
   name: 'CardItem',
+  components: {
+    Stats,
+  },
   props: {
     title: {
       type: String,
@@ -29,11 +24,13 @@ export default {
     content: {
       type: String,
     },
-    star: {
-      type: String,
-    },
-    fork: {
+    stars: {
       type: Number,
+      required: true,
+    },
+    forks: {
+      type: Number,
+      required: true,
     },
   },
 };
@@ -53,8 +50,5 @@ export default {
   display: flex;
   align-items: center;
 }
-.info-item {
-  display: flex;
-  align-items: center;
-}
+
 </style>

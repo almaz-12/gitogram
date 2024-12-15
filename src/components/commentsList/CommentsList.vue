@@ -1,9 +1,10 @@
 <template>
-  <ul class="comments-list">
+  <ul v-if="comments.length > 0" class="comments-list">
     <li class="comments-item" v-for="comment in comments" :key="comment.id">
       <CommentItem :username="comment.username" :comment="comment.comment"/>
     </li>
   </ul>
+  <div v-else class="no-comments">No comments</div>
 </template>
 
 <script>

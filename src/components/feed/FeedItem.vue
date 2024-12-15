@@ -13,8 +13,8 @@
         <CardItem
           :title="cardInfo.title"
           :content="cardInfo.content"
-          :star="cardInfo.star"
-          :fork="cardInfo.fork"
+          :stars="cardInfo.stars"
+          :forks="cardInfo.forks"
         />
       </div>
       <div class="feed-comments">
@@ -23,6 +23,7 @@
           <CommentsList/>
         </div>
       </div>
+
       <div class="feed-date">{{date}}</div>
     </div>
   </div>
@@ -47,8 +48,8 @@ export default {
       cardInfo: {
         title: 'Vue.js',
         content: 'JavaScript framework for building interactive web applications ⚡',
-        star: '156k',
-        fork: 4,
+        stars: 156,
+        forks: 4,
       },
     };
   },

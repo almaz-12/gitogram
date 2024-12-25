@@ -6,10 +6,11 @@
 
 <script>
 export default {
-  name: 'Avatar',
+  name: 'AppAvatar',
   props: {
     url: {
       type: String,
+      default: 'assets/avatar.png',
       required: true,
     },
     alt: {
@@ -18,7 +19,7 @@ export default {
     },
     size: {
       type: String,
-      required: true,
+      default: 'small',
     },
   },
 };

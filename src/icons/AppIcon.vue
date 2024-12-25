@@ -5,7 +5,7 @@
 import * as icons from './components/templates';
 
 export default {
-  name: 'Icon',
+  name: 'AppIcon',
   components: {
     ...icons,
   },

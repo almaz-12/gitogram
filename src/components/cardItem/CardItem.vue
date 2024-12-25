@@ -3,18 +3,18 @@
     <div class="card-title">{{title}}</div>
     <div class="card-content">{{content}}</div>
     <div class="card-info">
-      <Stats :stars="stars" :forks="forks" />
+      <CardItemStats :stars="stars" :forks="forks" />
     </div>
   </div>
 </template>
 
 <script>
-import { Stats } from '@/components/stats';
+import CardItemStats from '@/components/CardItemStats.vue';
 
 export default {
   name: 'CardItem',
   components: {
-    Stats,
+    CardItemStats,
   },
   props: {
     title: {

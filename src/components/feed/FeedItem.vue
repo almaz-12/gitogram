@@ -2,19 +2,19 @@
   <div class="feed">
     <div class="c-feed">
       <div class="feed-header">
-        <div class="feed-user">
+        <a :href="owner.html_url" class="feed-user">
           <div class="feed-user-avatar">
-            <Avatar :url="user.url" :alt="user.username" :size="user.size"/>
+            <AppAvatar :url="owner.avatar_url" :alt="owner.login"/>
           </div>
-          <div class="feed-user-name">{{user.username}}</div>
-        </div>
+          <div class="feed-user-name">{{owner.login}}</div>
+        </a>
       </div>
       <div class="feed-content">
         <CardItem
-          :title="cardInfo.title"
-          :content="cardInfo.content"
-          :stars="cardInfo.stars"
-          :forks="cardInfo.forks"
+          :title="language"
+          :content="description"
+          :stars="stars"
+          :forks="forks"
         />
       </div>
       <div class="feed-comments">
@@ -24,50 +24,69 @@
         </div>
       </div>
 
-      <div class="feed-date">{{date}}</div>
+      <div class="feed-date">{{formattedDate}}</div>
     </div>
   </div>
 </template>
 
 <script>
+import AppAvatar from '@/components/AppAvatar.vue';
 import { Toggler } from '../toggler';
 import { CommentsList } from '../commentsList';
-import { Avatar } from '../avatar';
 import { CardItem } from '../cardItem';
 
 export default {
   name: 'FeedItem',
+  props: {
+    name: {
+      type: String,
+      default: 'username',
+    },
+    description: {
+      type: String,
+      default: 'JavaScript framework for building interactive web applications ⚡',
+    },
+    forks: {
+      type: Number,
+      default: 0,
+    },
+    stars: {
+      type: Number,
+      default: 0,
+    },
+    language: {
+      type: String,
+      default: 'Vue.js',
+    },
+    date: {
+      type: String,
+      required: true,
+    },
+    owner: {
+      type: Object,
+      required: true,
+    },
+  },
   data() {
     return {
       show: false,
-      user: {
-        url: 'assets/avatar.png',
-        username: 'username',
-        size: 'small',
-      },
-      cardInfo: {
-        title: 'Vue.js',
-        content: 'JavaScript framework for building interactive web applications ⚡',
-        stars: 156,
-        forks: 4,
-      },
     };
   },
   components: {
     Toggler,
     CommentsList,
-    Avatar,
+    AppAvatar,
     CardItem,
+  },
+  computed: {
+    formattedDate() {
+      const date = new Date(this.date);
+      return date.toLocaleString('ru', { month: 'short', day: 'numeric' });
+    },
   },
   methods: {
     onToggle(status) {
       this.show = status;
-    },
-  },
-  props: {
-    date: {
-      type: String,
-      required: true,
     },
   },
 };
@@ -86,6 +105,7 @@ export default {
   &-user {
     display: flex;
     align-items: center;
+    text-transform: none!important;
 
     &-avatar {
       margin-right: 14px;

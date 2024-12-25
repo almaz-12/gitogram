@@ -1,28 +1,28 @@
 <template>
   <div>
-    <Header>
+    <AppHeader>
       <template #top>
-        <VHeader />
+        <TopNavigation />
       </template>
       <template #bottom>
         <UsersList :users="users"/>
       </template>
-    </Header>
+    </AppHeader>
     <FeedList />
   </div>
 </template>
 <script>
-import { Header } from '@/components/header';
-import { VHeader } from '@/components/vHeader';
+import AppHeader from '@/components/AppHeader.vue';
+import TopNavigation from '@/components/TopNavigation.vue';
 import { UsersList } from '@/components/usersList';
 import { FeedList } from '@/components/feedList';
 import users from '@/components/usersList/data.json';
 
 export default {
-  name: 'FeedsPage',
+  name: 'PageFeeds',
   components: {
-    Header,
-    VHeader,
+    AppHeader,
+    TopNavigation,
     FeedList,
     UsersList,
   },

@@ -1,31 +1,31 @@
 <template>
   <div class="logo">
-    <Logo/>
+    <AppLogo/>
   </div>
   <ul class="buttons">
     <div class="buttons-item buttons-item_home">
-      <Icon name="Home"/>
+      <AppIcon name="Home"/>
     </div>
     <div class="buttons-item buttons-item_user">
-      <Avatar :url="authUser.url" :alt="authUser.alt" :size="authUser.size"/>
+      <AppAvatar :url="authUser.url" :alt="authUser.alt" :size="authUser.size"/>
     </div>
     <div class="buttons-item buttons-item_logout">
-      <Icon name="Logout"/>
+      <AppIcon name="Logout"/>
     </div>
   </ul>
 </template>
 
 <script>
-import { Logo } from '@/components/logo';
-import { Avatar } from '@/components/avatar';
-import { Icon } from '@/icons';
+import AppIcon from '@/icons/AppIcon.vue';
+import AppLogo from '@/components/AppLogo.vue';
+import AppAvatar from '@/components/AppAvatar.vue';
 
 export default {
-  name: 'VHeader',
+  name: 'TopNavigation',
   components: {
-    Icon,
-    Logo,
-    Avatar,
+    AppIcon,
+    AppLogo,
+    AppAvatar,
   },
   data() {
     return {

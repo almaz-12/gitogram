@@ -1,17 +1,17 @@
 <template>
   <div class="user-avatar">
-    <Avatar :url="url" :alt="alt" :size="size"/>
+    <AppAvatar :url="url" :alt="alt" :size="size"/>
   </div>
   <div class="user-name">{{userName}}</div>
 </template>
 
 <script>
-import { Avatar } from '../avatar';
+import AppAvatar from '@/components/AppAvatar.vue';
 
 export default {
   name: 'UserItem',
   components: {
-    Avatar,
+    AppAvatar,
   },
   props: {
     url: {
@@ -24,7 +24,6 @@ export default {
     },
     size: {
       type: String,
-      required: true,
     },
     userName: {
       type: String,

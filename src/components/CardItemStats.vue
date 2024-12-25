@@ -23,7 +23,7 @@
 
 <script>
 export default {
-  name: 'Stats',
+  name: 'CardItemStats',
   props: {
     stars: {
       type: [Number, String],

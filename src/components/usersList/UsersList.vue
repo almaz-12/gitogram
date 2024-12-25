@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { UserItem } from '../userItem';
+import UserItem from '../UserItem.vue';
 
 export default {
   name: 'UsersList',

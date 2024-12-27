@@ -1,24 +1,20 @@
 <template>
   <div class="container">
-
-    <SlideItem :active="active" content="A beautiful theme extension for ComfyUI that adds festive touches with dynamic backgrounds, snowfall effects, and animated node connections"/>
     <ul class="feed-list" v-if="items.length > 0">
       <li class="feed-item" v-for="item in items" :key="item.id" ><FeedItem v-bind="getFeedData(item)"/></li>
     </ul>
-    <p v-if="loading">Загрузка..</p>
+    <p v-if="$store.state.loading">Загрузка..</p>
   </div>
 </template>
 
 <script>
 import { FeedItem } from '@/components/feed';
 import { getPopularRepo } from '@/api/rest/getPopularRepo';
-import SlideItem from '../SlideItem.vue';
 
 export default {
   name: 'FeedList',
   components: {
     FeedItem,
-    SlideItem,
   },
   data() {
     return {

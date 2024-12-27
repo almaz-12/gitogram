@@ -1,15 +1,11 @@
 <template>
-  <PageFeeds />
+  <router-view />
 </template>
 
 <script>
-import PageFeeds from '@/pages/PageFeeds.vue';
 
 export default {
   name: 'App',
-  components: {
-    PageFeeds,
-  },
 };
 </script>
 

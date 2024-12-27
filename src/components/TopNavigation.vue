@@ -4,10 +4,14 @@
   </div>
   <ul class="buttons">
     <div class="buttons-item buttons-item_home">
-      <AppIcon name="Home"/>
+      <router-link :to="{ name: 'feeds' }">
+        <AppIcon name="Home"/>
+      </router-link>
     </div>
     <div class="buttons-item buttons-item_user">
-      <AppAvatar :url="authUser.url" :alt="authUser.alt" :size="authUser.size"/>
+      <router-link :to="{ name: 'user' }">
+        <AppAvatar :url="authUser.url" :alt="authUser.alt" :size="authUser.size"/>
+      </router-link>
     </div>
     <div class="buttons-item buttons-item_logout">
       <AppIcon name="Logout"/>

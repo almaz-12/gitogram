@@ -32,7 +32,7 @@ import AppProgress from './AppProgress.vue';
 import UserItem from './UserItem.vue';
 
 export default {
-  name: 'SlideItem',
+  name: 'StoriesSliderItem',
   components: {
     AppButton,
     UserItem,

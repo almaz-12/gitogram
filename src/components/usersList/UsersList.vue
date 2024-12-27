@@ -1,6 +1,6 @@
 <template>
   <ul class="users-list">
-    <li class="user-item" v-for="user in users" :key="user.id">
+    <li class="user-item" v-for="user in users" :key="user.id" @click="goToStories" @keydown="goToStories">
       <UserItem :url="user.url" :alt="user.username" :size="user.size" :userName="user.username"/>
     </li>
   </ul>
@@ -18,6 +18,11 @@ export default {
     users: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    goToStories() {
+      this.$router.push('/stories');
     },
   },
 };

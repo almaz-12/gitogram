@@ -1,5 +1,6 @@
 import FeedsPage from '@/pages/FeedsPage.vue';
 import UserPage from '@/pages/UserPage.vue';
+import StoriesPage from '@/pages/StoriesPage.vue';
 import NotFoundPage from '@/pages/NotFoundPage.vue';
 
 export default [
@@ -7,6 +8,11 @@ export default [
     path: '/',
     component: FeedsPage,
     name: 'feeds',
+  },
+  {
+    path: '/stories',
+    component: StoriesPage,
+    name: 'stories',
   },
   {
     path: '/user',

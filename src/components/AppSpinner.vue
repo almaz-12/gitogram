@@ -8,7 +8,6 @@ export default {
   props: {
     color: {
       type: String,
-      default: 'white',
     },
   },
 };
@@ -18,8 +17,8 @@ export default {
   .spinner {
     margin: 5px auto;
     text-indent: -9999em;
-    width: 25px;
-    height: 25px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     background: #31AE54;
     background: -moz-linear-gradient(left, #31AE54 10%, rgba(255, 255, 255, 0) 42%);

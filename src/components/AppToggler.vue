@@ -8,10 +8,10 @@
 </template>
 
 <script>
-import { Icon } from '../../icons';
+import { Icon } from '../icons';
 
 export default {
-  name: 'Toggler',
+  name: 'AppToggler',
   emits: ['onToggle'],
   components: {
     Icon,

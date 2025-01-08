@@ -7,12 +7,16 @@
           @on-finish="onFinish"
         />
         <div class="slide__user-info">
-          <UserItem url="assets/avatar-1.svg" :alt="userName" size="medium" :userName="userName"/>
+          <UserItem :url="owner.avatar_url" :userName="owner.login" :alt="owner.login" size="medium"/>
         </div>
       </div>
       <div class="slide__content">
-        <div class="slide__info" v-if="content && content.length">
-          {{ content }}
+        <div class="slide__loader" v-if="loading">
+          <AppSpinner />
+        </div>
+        <div class="slide__info" v-else >
+          <div class="" v-if="description && description.length" v-html="description"></div>
+          <AppPlaceholder v-else/>
         </div>
       </div>
       <div class="slide__button">
@@ -23,13 +27,28 @@
         >Follow</AppButton>
       </div>
     </div>
+    <template v-if="active">
+      <button v-if="showBtns.prev" class="btn btn-prev" @click="prevSlide">
+        <div class="icon icon_arrow">
+          <AppIcon name="ArrowLeft"/>
+        </div>
+      </button>
+      <button v-if="showBtns.next" class="btn btn-next" @click="nextSlide">
+        <div class="icon icon_arrow">
+          <AppIcon name="ArrowRight"/>
+        </div>
+      </button>
+    </template>
   </div>
 </template>
 
 <script>
+import AppIcon from '@/icons/AppIcon.vue';
 import AppButton from './AppButton.vue';
 import AppProgress from './AppProgress.vue';
 import UserItem from './UserItem.vue';
+import AppPlaceholder from './AppPlaceholder.vue';
+import AppSpinner from './AppSpinner.vue';
 
 export default {
   name: 'StoriesSliderItem',
@@ -37,6 +56,9 @@ export default {
     AppButton,
     UserItem,
     AppProgress,
+    AppPlaceholder,
+    AppSpinner,
+    AppIcon,
   },
   data() {
     return {
@@ -46,27 +68,46 @@ export default {
       theme_green: 'theme_green',
     };
   },
+  emits: ['onPrevSlide', 'onNextSlide'],
   props: {
     active: {
       type: Boolean,
       default: false,
     },
-    avatarUrl: {
-      type: String,
-      default: 'https://picsum.photos/300/300',
+    owner: {
+      type: Object,
+      default() {
+        return {};
+      },
     },
-    userName: {
+    description: {
       type: String,
-      default: 'NoName',
     },
-    content: {
-      type: String,
-      default: 'Здесь ничего нет :(',
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+    showBtns: {
+      type: Object,
+      default() {
+        return {
+          next: true,
+          prev: true,
+        };
+      },
     },
   },
   methods: {
     onFinish() {
-      console.log('финиш');
+      if (this.showBtns.next) {
+        this.nextSlide();
+      }
+    },
+    prevSlide() {
+      this.$emit('onPrevSlide');
+    },
+    nextSlide() {
+      this.$emit('onNextSlide');
     },
   },
 };
@@ -91,6 +132,8 @@ export default {
     align-items: center;
     margin-top: 15px;
     gap: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
 
     .user-name {
       color: #262626;
@@ -118,6 +161,7 @@ export default {
     border-radius: 50%;
     padding: 9px;
     background-color: #FFFFFF;
+    line-height: 10px;
 
     &-prev {
       left: -56px;
@@ -150,7 +194,6 @@ export default {
     flex: 1;
     font-size: 18px;
     line-height: 1.42;
-    padding: 15px;
   }
 
   &__button {
@@ -169,7 +212,7 @@ export default {
     overflow-y: scroll;
     border-top: 1px solid #CACACA;
     border-bottom: 1px solid #CACACA;
-    padding: 6px 0;
+    padding: 15px;
 
     &::-webkit-scrollbar {
       width: 19px;  /* width of the entire scrollbar */

@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ active: isActive}" class="progress">
+  <div :class="{ active: isActive }" class="progress">
     <div ref="indicator" class="indicator"></div>
   </div>
 </template>
@@ -16,8 +16,10 @@ export default {
   },
   methods: {
     emitOnFinish() {
-      console.log('end-----onFinish');
-      this.$emit('onFinish');
+      if (this.isActive) {
+        console.log('end-----emitOnFinish');
+        this.$emit('onFinish');
+      }
     },
   },
   mounted() {
@@ -33,7 +35,7 @@ export default {
 
 <style lang="scss">
 .progress {
-  height: 2px;
+  height: 5px;
   background: rgba(49, 174, 84, 0.3);
   border-radius: 1px;
   position: relative;
@@ -53,6 +55,6 @@ export default {
   left: 0;
   width: 0;
   background: #31AE54;
-  transition: 5s;
+  transition: 7s;
 }
 </style>

@@ -18,7 +18,7 @@
         />
       </div>
       <div class="feed-comments">
-        <Toggler @onToggle="onToggle"/>
+        <AppToggler @onToggle="onToggle"/>
         <div class="comments" v-show="show">
           <CommentsList/>
         </div>
@@ -31,7 +31,7 @@
 
 <script>
 import AppAvatar from '@/components/AppAvatar.vue';
-import { Toggler } from '../toggler';
+import AppToggler from '@/components/AppToggler.vue';
 import { CommentsList } from '../commentsList';
 import { CardItem } from '../cardItem';
 
@@ -40,7 +40,7 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'username',
+      default: 'NoName',
     },
     description: {
       type: String,
@@ -73,7 +73,7 @@ export default {
     };
   },
   components: {
-    Toggler,
+    AppToggler,
     CommentsList,
     AppAvatar,
     CardItem,

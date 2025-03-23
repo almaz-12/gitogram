@@ -4,3 +4,4 @@ export { default as Logout } from './Logout.vue';
 export { default as Close } from './Close.vue';
 export { default as ArrowLeft } from './ArrowLeft.vue';
 export { default as ArrowRight } from './ArrowRight.vue';
+export { default as Github } from './Github.vue';

@@ -1,13 +1,19 @@
+import AuthPage from '@/pages/AuthPage.vue';
 import FeedsPage from '@/pages/FeedsPage.vue';
 import UserPage from '@/pages/UserPage.vue';
 import StoriesPage from '@/pages/StoriesPage.vue';
-// import NotFoundPage from '@/pages/NotFoundPage.vue';
+import NotFoundPage from '@/pages/NotFoundPage.vue';
 
 export default [
   {
     path: '/',
     component: FeedsPage,
     name: 'feeds',
+  },
+  {
+    path: '/auth',
+    component: AuthPage,
+    name: 'auth',
   },
   {
     path: '/stories',
@@ -24,8 +30,8 @@ export default [
     component: UserPage,
     props: true,
   },
-  // {
-  //   path: '/:pathMatch(.*)*',
-  //   component: NotFoundPage,
-  // },
+  {
+    path: '/:pathMatch(.*)*',
+    component: NotFoundPage,
+  },
 ];

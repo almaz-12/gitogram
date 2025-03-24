@@ -1,13 +1,13 @@
 <template>
   <ul class="users-list">
-    <li class="user-item" v-for="user in users" :key="user.id" @click="goToStories(user.id)" @keydown="goToStories(user.id)">
-      <UserItem :url="user.url" :alt="user.username" :size="user.size" :userName="user.username"/>
+    <li class="user-item" v-for="(user, index) in users" :key="user.id" @click="goToStories(index)" @keydown="goToStories(index)">
+      <UserItem :url="user.owner.avatar_url" :alt="user.owner.login" :size="'large'" :userName="user.owner.login"/>
     </li>
   </ul>
 </template>
 
 <script>
-import UserItem from '../UserItem.vue';
+import UserItem from '@/components/UserItem.vue';
 
 export default {
   name: 'UsersList',
@@ -24,6 +24,9 @@ export default {
     goToStories(key) {
       this.$router.push({ path: '/stories', query: { s: key } });
     },
+  },
+  created() {
+    console.log(this.users);
   },
 };
 </script>

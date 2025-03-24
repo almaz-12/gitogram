@@ -14,9 +14,9 @@
 <script>
 import AppHeader from '@/components/AppHeader.vue';
 import TopNavigation from '@/components/TopNavigation.vue';
-import { UsersList } from '@/components/usersList';
+import UsersList from '@/components/UsersList.vue';
 import { FeedList } from '@/components/feedList';
-import users from '@/components/usersList/data.json';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'PageFeeds',
@@ -26,10 +26,20 @@ export default {
     FeedList,
     UsersList,
   },
-  data() {
-    return {
-      users,
-    };
+  computed: {
+    ...mapState({
+      users: (state) => state.popularRepo.data,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchPopularRepo: 'popularRepo/fetchPopularRepo',
+    }),
+  },
+  async mounted() {
+    this.$nextTick(async () => {
+      await this.fetchPopularRepo();
+    });
   },
 };
 </script>

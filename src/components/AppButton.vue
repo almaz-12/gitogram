@@ -5,11 +5,12 @@
       {'hover-text': withHoverText}
     ]"
     :data-hover-text="hoverText"
+    :disabled="disabled"
   >
     <div class="button__loader" v-if="loading">
       <AppSpinner :color="spinner_white" />
     </div>
-    <span class="btn-text">
+    <span class="btn-text" v-if="!loading">
       <slot></slot>
     </span>
   </button>
@@ -37,6 +38,9 @@ export default {
       default: 'default hoverText',
     },
     loading: {
+      type: Boolean,
+    },
+    disabled: {
       type: Boolean,
     },
   },

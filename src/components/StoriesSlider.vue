@@ -19,6 +19,7 @@
             :showBtns="activeBtns"
             @onNextSlide="handleSlide(index + 1)"
             @onPrevSlide="handleSlide(index - 1)"
+            @follow="handleFollow()"
           />
         </li>
       </ul>
@@ -93,6 +94,11 @@ export default {
     async handleSlide(slideNum) {
       this.moveSlide(slideNum);
       await this.fetchReadmeCurrentSlide();
+    },
+    handleFollow() {
+      const { id, owner, name } = this.popularRepo[this.slideIndex];
+
+      console.log(id, owner, name);
     },
   },
   async mounted() {

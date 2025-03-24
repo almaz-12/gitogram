@@ -22,6 +22,7 @@ export default {
     background: #fafafa;
     border-bottom: 1px solid #c6c6c8;
     padding: 42px 0 32px;
+    margin-top: 0;
 
     &-top {
       display: flex;

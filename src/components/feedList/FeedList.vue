@@ -1,7 +1,7 @@
 <template>
   <div class="container">
-    <ul class="feed-list" v-if="items.length > 0">
-      <li class="feed-item" v-for="item in items" :key="item.id" ><FeedItem v-bind="getFeedData(item)"/></li>
+    <ul class="feed-list" v-if="repos.length > 0">
+      <li class="feed-item" v-for="item in repos" :key="item.id" ><FeedItem v-bind="getFeedData(item)"/></li>
     </ul>
     <p v-if="$store.state.loading">Загрузка..</p>
   </div>
@@ -9,19 +9,12 @@
 
 <script>
 import { FeedItem } from '@/components/feed';
-import { getPopularRepo } from '@/api/rest/getPopularRepo';
+import { mapState } from 'vuex';
 
 export default {
   name: 'FeedList',
   components: {
     FeedItem,
-  },
-  data() {
-    return {
-      items: [],
-      loading: true,
-      active: false,
-    };
   },
   methods: {
     getFeedData(item) {
@@ -36,21 +29,10 @@ export default {
       };
     },
   },
-  async created() {
-    try {
-      const { data } = await getPopularRepo();
-
-      this.items = data.items;
-    } catch (error) {
-      console.log(error);
-    } finally {
-      this.loading = false;
-    }
-  },
-  mounted() {
-    setTimeout(() => {
-      this.active = true;
-    }, 0);
+  computed: {
+    ...mapState({
+      repos: (state) => state.popularRepo.data,
+    }),
   },
 };
 </script>

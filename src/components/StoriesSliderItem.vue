@@ -24,6 +24,7 @@
           :size="size_m"
           :theme="theme_green"
           :hoverText="hoverText"
+          @click="$emit('follow')"
         >Follow</AppButton>
       </div>
     </div>
@@ -68,7 +69,7 @@ export default {
       theme_green: 'theme_green',
     };
   },
-  emits: ['onPrevSlide', 'onNextSlide'],
+  emits: ['onPrevSlide', 'onNextSlide', 'follow'],
   props: {
     active: {
       type: Boolean,
@@ -108,6 +109,9 @@ export default {
     },
     nextSlide() {
       this.$emit('onNextSlide');
+    },
+    follow() {
+      console.log('follow');
     },
   },
 };

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import { getUser } from '@/api/rest/user';
+// import { getUser } from '@/api/rest/user';
 import routes from './routes';
 
 const router = createRouter({
@@ -8,20 +8,21 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to, from, next) => {
-  const authRoute = to.name === 'auth';
-  if (authRoute) {
-    next();
-    return;
-  }
+  // const authRoute = to.name === 'auth';
+  // if (authRoute) {
+  //   next();
+  //   return;
+  // }
+  next();
 
-  try {
-    await getUser();
+  // try {
+  //   await getUser();
 
-    next();
-  } catch (error) {
-    console.log(123);
-    next({ name: 'auth' });
-  }
+  //   next();
+  // } catch (error) {
+  //   console.log(123);
+  //   next({ name: 'auth' });
+  // }
 });
 
 export default router;

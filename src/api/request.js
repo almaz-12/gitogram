@@ -2,10 +2,10 @@ import axios from 'axios';
 
 const baseURL = 'https://api.github.com';
 
-const token = localStorage.getItem('token');
-if (token) {
-  axios.defaults.headers.Authorization = `token ${token}`;
-}
+// const token = localStorage.getItem('token');
+// if (token) {
+//   axios.defaults.headers.Authorization = `token ${token}`;
+// }
 
 export const makeRequest = ({
   url, method = 'get', data = {}, withBaseUrl = true, headers = {},

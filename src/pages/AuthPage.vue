@@ -1,11 +1,47 @@
+<script setup>
+import axios from 'axios';
+import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
+import AppLogo from '@/components/AppLogo.vue';
+import AppIcon from '@/icons/AppIcon.vue';
+
+import { ghAuthPage } from '@/api/rest/auth';
+import { TOKEN } from '../../env';
+
+const router = useRouter();
+
+onMounted(() => {
+  const code = new URLSearchParams(window.location.search).get('code');
+
+  if (!code) return;
+
+  try {
+    // для продакщн
+    // const { token } = await getToken(code);
+
+    localStorage.setItem('token', TOKEN);
+    axios.defaults.headers.Authorization = `token ${TOKEN}`;
+
+    router.replace({ name: 'feeds' });
+  } catch (error) {
+    console.error('GitHub auth failed:', error);
+  }
+});
+
+async function goToGithubAuth() {
+  ghAuthPage();
+}
+</script>
+
 <template>
-  <div class="с-auth">
-    <div class="с-auth__top">
+  <div class="c-auth">
+    <div class="c-auth__top">
       <AppLogo></AppLogo>
-      <div class="с-auth__content">More than just one repository.<br>
+      <div class="c-auth__content">More than just one repository.<br>
         This is our digital world.</div>
       <button
-        class="с-auth__btn"
+        class="c-auth__btn"
         @click="goToGithubAuth"
       >
         <span class="text">Authorize with github</span>
@@ -13,49 +49,17 @@
           <AppIcon name="Github"></AppIcon>
         </div>
       </button>
+
     </div>
-    <div class="с-auth__bottom">
+    <div class="c-auth__bottom">
       <img src="@/assets/auth-bg.png" alt="" class="auth__img">
       <div class="copyright">© Gitogram from Loftschool</div>
     </div>
   </div>
 </template>
 
-<script>
-import AppLogo from '@/components/AppLogo.vue';
-import AppIcon from '@/icons/AppIcon.vue';
-import { ghAuthPage } from '@/api/rest/auth';
-
-export default {
-  components: {
-    AppLogo,
-    AppIcon,
-  },
-  methods: {
-    async goToGithubAuth() {
-      ghAuthPage();
-    },
-  },
-  async created() {
-    const code = new URLSearchParams(window.location.search).get('code');
-
-    if (code) {
-      try {
-        // заглушка, получение токена с локалки не возможна, блокировка на стороне гита
-        // const { token } = await getToken(code);
-
-        localStorage.setItem('token', 'test-token');
-        this.$router.replace({ name: 'feeds' });
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  },
-};
-</script>
-
 <style lang="scss" scoped>
-.с-auth {
+.c-auth {
   display: flex;
   flex-direction: column;
   justify-content: center;

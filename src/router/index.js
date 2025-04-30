@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-// import { getUser } from '@/api/rest/user';
+import { ROUTE_NAMES } from '@/common/constants';
+import { getUser } from '@/api/rest/user';
 import routes from './routes';
 
 const router = createRouter({
@@ -7,22 +8,33 @@ const router = createRouter({
   routes,
 });
 
+const publicRoutes = [ROUTE_NAMES.AUTH, ROUTE_NAMES.ERROR_404];
+
 router.beforeEach(async (to, from, next) => {
-  // const authRoute = to.name === 'auth';
-  // if (authRoute) {
-  //   next();
-  //   return;
-  // }
-  next();
+  const isPublicRoute = publicRoutes.includes(to.name);
+  const isAuthRoute = to.name === ROUTE_NAMES.AUTH;
 
-  // try {
-  //   await getUser();
+  if (isPublicRoute) {
+    next();
+    return;
+  }
 
-  //   next();
-  // } catch (error) {
-  //   console.log(123);
-  //   next({ name: 'auth' });
-  // }
+  try {
+    await getUser();
+
+    if (isAuthRoute) {
+      next({ name: ROUTE_NAMES.FEEDS });
+      return;
+    }
+
+    next();
+  } catch (error) {
+    if (!isAuthRoute) {
+      next({ name: ROUTE_NAMES.AUTH, query: { redirect: to.fullPath } });
+    } else {
+      next();
+    }
+  }
 });
 
 export default router;

@@ -19,7 +19,6 @@ import { FeedList } from '@/components/feedList';
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  name: 'PageFeeds',
   components: {
     AppHeader,
     TopNavigation,
@@ -43,6 +42,7 @@ export default {
   },
 };
 </script>
+
 <style lang="scss" scoped>
 .feed-item+.feed-item {
   margin-top: 24px;

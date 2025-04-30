@@ -33,5 +33,6 @@ export default [
   {
     path: '/:pathMatch(.*)*',
     component: NotFoundPage,
+    name: 'error-404',
   },
 ];

@@ -10,37 +10,70 @@
     </div>
     <div class="buttons-item buttons-item_user">
       <router-link :to="{ name: 'user' }">
-        <AppAvatar :url="authUser.url" :alt="authUser.alt" :size="authUser.size"/>
+        <AppAvatar :url="user.avatar_url" :alt="user.name" size="small"/>
       </router-link>
     </div>
     <div class="buttons-item buttons-item_logout">
-      <AppIcon name="Logout"/>
+      <AppIcon name="Logout" @click="logout"/>
     </div>
   </ul>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+
 import AppIcon from '@/icons/AppIcon.vue';
 import AppLogo from '@/components/AppLogo.vue';
 import AppAvatar from '@/components/AppAvatar.vue';
 
-export default {
-  name: 'TopNavigation',
-  components: {
-    AppIcon,
-    AppLogo,
-    AppAvatar,
-  },
-  data() {
-    return {
-      authUser: {
-        url: '/assets/avatar.png',
-        alt: 'user',
-        size: 'small',
-      },
-    };
-  },
-};
+const router = useRouter();
+const store = useStore();
+
+const user = computed(() => store.state.user.data);
+const fetchUser = () => store.dispatch('user/fetchUser');
+
+fetchUser();
+
+function logout() {
+  localStorage.removeItem('token');
+  router.replace({ name: 'auth' });
+  window.location.reload();
+}
+
+// onMounted(async () => {
+//   await fetchUser();
+// });
+
+// export default {
+//   name: 'TopNavigation',
+//   components: {
+//     AppIcon,
+//     AppLogo,
+//     AppAvatar,
+//   },
+//   computed: {
+//     ...mapState({
+//       user: (state) => state.user.data,
+//     }),
+//   },
+//   methods: {
+//     ...mapActions({
+//       fetchUser: 'user/fetchUser',
+//     }),
+//     logout: () => {
+//       localStorage.removeItem('token');
+//       this.$router.replace({ name: 'authPage' });
+//       window.location.reload();
+//     },
+//   },
+//   async created() {
+//     this.$nextTick(async () => {
+//       await this.fetchUser();
+//     });
+//   },
+// };
 </script>
 <style lang="scss" scoped>
 .logo {

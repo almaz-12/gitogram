@@ -1,5 +1,4 @@
 import { makeRequest } from '@/api/request';
-
 import { clientId, clientSecret } from '../../../env';
 
 const ghAuthLink = 'https://github.com/login/oauth/authorize';
@@ -9,12 +8,11 @@ export const getToken = (code) => makeRequest({
   url: 'https://github.com/login/oauth/access_token',
   method: 'post',
   data: {
-    code, clientId, clientSecret,
+    code,
+    clientId,
+    clientSecret,
   },
   withBaseUrl: false,
-  headers: {
-    'Access-Control-Allow-Origin': true,
-  },
 });
 
 export const ghAuthPage = () => {
